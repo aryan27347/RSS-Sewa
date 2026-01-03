@@ -7,11 +7,12 @@ import { ReportSummaryComponent } from '../report-summary/report-summary.compone
 import { CardComponent } from 'src/app/theme/shared/components/card/card.component';
 import { valueSelect } from 'src/app/services/valueSelect.service';
 import { FormsModule } from '@angular/forms';
+import { ReportMonthlyShakhaVrutComponent } from "../report-monthly-shakha-vrut/report-monthly-shakha-vrut.component";
 
 @Component({
   selector: 'app-report',
   standalone: true,
-  imports: [CommonModule,ReportDetailComponent,ReportStatisticsComponent,ReportSummaryComponent,CardComponent, FormsModule],
+  imports: [CommonModule, ReportDetailComponent, ReportStatisticsComponent, ReportSummaryComponent, CardComponent, FormsModule, ReportMonthlyShakhaVrutComponent],
   templateUrl: './report.component.html',
   styleUrl: './report.component.scss'
 })

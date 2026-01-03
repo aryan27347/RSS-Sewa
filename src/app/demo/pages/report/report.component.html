@@ -9,6 +9,7 @@
             <option value="summary">विभाग/प्रांत का संकलन पत्रक</option>
             <option value="detail">प्रांत का संकलन पत्रक</option>
             <option value="statistics">आयाम सह वृत्त</option>
+            <option value="monthlyShakhaVrut">मासिक शाखा वृत्त</option>
           </select>
         </div>
         <div class="row" *ngIf="reportType === 'statistics'">
@@ -31,6 +32,17 @@
             </div>
           </div>
         </div>
+        <div class="row" *ngIf="reportType === 'monthlyShakhaVrut'">
+          <div class="mb-3 col-md-4">
+            <label>મહિનો</label>
+            <div>
+              <select class="form-select" required aria-label="select month" (change)="selectMonth($event)" [ngModel]="selectedMonth">
+                <option value="" selected>પસંદ કરો</option>
+                <option [value]="month" *ngFor="let month of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]">{{ month }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
       </div>
     </app-card>
   </div>
@@ -49,4 +61,9 @@
 <!-- Department Component -->
 <ng-container *ngIf="reportType === 'statistics' && selectedYear.length">
   <app-report-statistics [selectedYear]="selectedYear" [selectedMonth]="selectedMonth"></app-report-statistics>
+</ng-container>
+
+<!-- Masik Shakha Vrut Component -->
+<ng-container *ngIf="reportType === 'monthlyShakhaVrut' && selectedMonth.length">
+  <app-report-monthly-shakha-vrut [selectedMonth]="selectedMonth"></app-report-monthly-shakha-vrut>
 </ng-container>
